@@ -12,21 +12,39 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    private Double score;
+    private String genre;
     @Column(name = "game_year")
     private Integer year;
-    private String platform;
+    private String platforms;
     private String imgUrl;
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+    @Column(columnDefinition = "TEXT")
+    private String longDescription;
+
 
     public Game(){}
 
-    public Game(Long id, String title, Integer year, String platform, String imgUrl, String shortDescription) {
+    public Game(Long id, String title, Double score, Integer year,String genre, String platforms, String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
+        this.score = score;
         this.year = year;
-        this.platform = platform;
+        this.genre = genre;
+        this.platforms = platforms;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
+        this.longDescription = longDescription;
+
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public Long getId() {
@@ -53,12 +71,12 @@ public class Game {
         this.year = year;
     }
 
-    public String getPlatform() {
-        return platform;
+    public String getPlatforms() {
+        return platforms;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    public void setPlatforms(String platforms) {
+        this.platforms = platforms;
     }
 
     public String getImgUrl() {
@@ -75,6 +93,22 @@ public class Game {
 
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
+    }
+
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
     }
 
     @Override
